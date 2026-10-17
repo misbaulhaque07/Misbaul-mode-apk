@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misbaul Mode's - APK App Store & Upload Platform</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -25,31 +23,16 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
     </style>
 </head>
 <body class="bg-darkBg text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
-
-    <!-- Header Navigation -->
     <header class="sticky top-0 z-40 backdrop-blur-md bg-darkBg/85 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="resetFilters()">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
                     <i class="fa-solid fa-gamepad text-white text-2xl"></i>
@@ -59,8 +42,6 @@
                     <span class="block text-xs font-medium text-indigo-400 tracking-wider">APK APP STORE</span>
                 </div>
             </div>
-
-            <!-- Search Bar (Desktop) -->
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
@@ -70,17 +51,13 @@
                         class="w-full pl-11 pr-4 py-2.5 bg-cardBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all placeholder-slate-500 text-slate-200">
                 </div>
             </div>
-
-            <!-- Upload Button & Action -->
             <div class="flex items-center space-x-3">
-                <button onclick="openUploadModal()" class="flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span class="hidden sm:inline">Upload App</span>
+                <button onclick="checkAdminPassword()" class="flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <i class="fa-solid fa-lock"></i>
+                    <span class="hidden sm:inline">Admin Upload</span>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Search Bar -->
         <div class="md:hidden px-4 pb-3">
             <div class="relative w-full">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
@@ -91,11 +68,7 @@
             </div>
         </div>
     </header>
-
-    <!-- Main Content Area -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
-        <!-- Hero Banner -->
         <section class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/50 via-purple-900/40 to-slate-900 border border-slate-800 p-8 md:p-12 mb-10 shadow-2xl">
             <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 max-w-2xl">
@@ -110,9 +83,9 @@
                     Explore top-rated apps and games uploaded by the community. Download directly via secure APK links or share with friends instantly.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <button onclick="openUploadModal()" class="bg-white text-darkBg hover:bg-slate-200 font-bold px-6 py-3 rounded-xl transition-all shadow-lg flex items-center space-x-2 text-sm">
-                        <i class="fa-solid fa-plus-circle text-indigo-600"></i>
-                        <span>Upload Your App Now</span>
+                    <button onclick="checkAdminPassword()" class="bg-white text-darkBg hover:bg-slate-200 font-bold px-6 py-3 rounded-xl transition-all shadow-lg flex items-center space-x-2 text-sm">
+                        <i class="fa-solid fa-lock text-indigo-600"></i>
+                        <span>Admin Upload Panel</span>
                     </button>
                     <a href="#appsSection" class="bg-cardBg hover:bg-slate-800 border border-slate-700 text-white font-semibold px-6 py-3 rounded-xl transition-all flex items-center space-x-2 text-sm">
                         <span>Browse Catalog</span>
@@ -121,8 +94,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Categories Filter Bar -->
         <section class="mb-8" id="appsSection">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl font-bold text-white flex items-center space-x-2">
@@ -131,79 +102,49 @@
                 </h2>
                 <span id="appCountBadge" class="text-xs font-medium text-slate-400 bg-cardBg px-3 py-1 rounded-full border border-slate-800">0 Apps Available</span>
             </div>
-            
             <div id="categoryFilters" class="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none">
-                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-indigo-600 text-white shadow-md shadow-indigo-600/30">
-                    All Apps
-                </button>
-                <button onclick="filterCategory('Games')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">
-                    Games
-                </button>
-                <button onclick="filterCategory('Tools')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">
-                    Tools & Utilities
-                </button>
-                <button onclick="filterCategory('Social')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">
-                    Social & Comm
-                </button>
-                <button onclick="filterCategory('Entertainment')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">
-                    Entertainment
-                </button>
-                <button onclick="filterCategory('Productivity')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">
-                    Productivity
-                </button>
+                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-indigo-600 text-white shadow-md shadow-indigo-600/30">All Apps</button>
+                <button onclick="filterCategory('Games')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">Games</button>
+                <button onclick="filterCategory('Tools')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">Tools & Utilities</button>
+                <button onclick="filterCategory('Social')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">Social & Comm</button>
+                <button onclick="filterCategory('Entertainment')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">Entertainment</button>
+                <button onclick="filterCategory('Productivity')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-cardBg border border-slate-700/80 text-slate-300 hover:bg-slate-800 hover:text-white">Productivity</button>
             </div>
         </section>
-
-        <!-- Apps Grid -->
         <section>
-            <div id="appsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- App Cards will be dynamically inserted here -->
-            </div>
-
-            <!-- Empty State -->
+            <div id="appsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             <div id="emptyState" class="hidden text-center py-20 bg-cardBg/40 border border-dashed border-slate-800 rounded-3xl mt-4">
                 <div class="w-20 h-20 bg-slate-800 text-slate-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                     <i class="fa-solid fa-box-open"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-200 mb-1">No Apps Found</h3>
-                <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">We couldn't find any apps matching your search criteria or category. Try uploading your own app!</p>
-                <button onclick="openUploadModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-xl text-xs transition-all shadow-md">
-                    Upload App Now
-                </button>
+                <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">We couldn't find any apps matching your search criteria or category.</p>
             </div>
         </section>
-
     </main>
-
-    <!-- Upload Modal -->
     <div id="uploadModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden p-4 overflow-y-auto">
         <div class="bg-cardBg border border-slate-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative my-8">
             <button onclick="closeUploadModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-800 w-9 h-9 rounded-full flex items-center justify-center transition-all">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-
             <div class="flex items-center space-x-3 mb-6">
                 <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg">
                     <i class="fa-solid fa-upload"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-white">Upload New APK</h3>
-                    <p class="text-xs text-slate-400">Share your app with Misbaul Mode's community</p>
+                    <h3 class="text-xl font-bold text-white">Admin Upload New APK</h3>
+                    <p class="text-xs text-slate-400">Restricted access: Only Misbaul can upload apps</p>
                 </div>
             </div>
-
             <form id="uploadForm" onsubmit="handleUploadSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">App Name *</label>
-                    <input type="text" id="appName" required placeholder="e.g. Cyber Runner Mod" 
-                        class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                    <input type="text" id="appName" required placeholder="e.g. Cyber Runner Mod" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Developer / Author *</label>
-                        <input type="text" id="appDev" required placeholder="e.g. Misbaul" 
-                            class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                        <input type="text" id="appDev" required placeholder="e.g. Misbaul" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Category *</label>
@@ -216,21 +157,39 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Version *</label>
-                        <input type="text" id="appVersion" required placeholder="e.g. v1.2.0" 
-                            class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                        <input type="text" id="appVersion" required placeholder="e.g. v1.2.0" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">File Size *</label>
-                        <input type="text" id="appSize" required placeholder="e.g. 45 MB" 
-                            class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                        <input type="text" id="appSize" required placeholder="e.g. 45 MB" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
                     </div>
                 </div>
-
                 <div>
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">App Icon URL (Image Link) *</label>
-                    <input type="url" id="appIcon" required placeholder="https://example.com/icon.png" 
-                        class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate
+                    <input type="url" id="appIcon" required placeholder="https://example.com/icon.png" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Download Link / APK URL *</label>
+                    <input type="url" id="appLink" required placeholder="https://example.com/download.apk" class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Short Description *</label>
+                    <textarea id="appDesc" rows="3" required placeholder="Briefly describe what your app does..." class="w-full px-4 py-2.5 bg-darkBg border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-200 placeholder-slate-600 resize-none"></textarea>
+                </div>
+                <div class="pt-2 flex items-center justify-end space-x-3">
+                    <button type="button" onclick="closeUploadModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Cancel</button>
+                    <button type="submit" class="px-6 py-2.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 transition-all">Publish App</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-slate-700 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <div id="toastIcon" class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h5 id="toastTitle" class="text-xs font-bold text-slate-100">Success</h5>
+            <p id="toastMsg" class="text-xs text-slate-400
